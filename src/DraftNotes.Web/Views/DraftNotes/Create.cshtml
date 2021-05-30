@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DraftNotes.Web.Models.Note>
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<form asp-action="Save" method="post" class="bg-light">
+    <div class="form-outline">
+        <textarea class="form-control" id="textAreaExample" name="Description" rows="5"></textarea>
+        <label class="form-label" for="textAreaExample">Notes</label>
+    </div>
+    <br />
+
+    <button class="btn btn-primary btn-lg btn-floating"
+            style="background-color: #121212"
+            type="submit">
+        <i class="fas fa-plus"></i>">
+    </button>
+
+
+    <button class="btn btn-primary btn-lg btn-floating"
+            style="background-color: #121212"
+            type="reset">
+        <i class="fas fa-undo"></i>
+    </button>
+</form>
+
+<br />
+<table class="table table-light table-striped">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td hidden>@item.Id</td>
+                <td width="90%">@item.Description</td>
+                <td>
+                    <a class="btn btn-primary btn-lg btn-floating"
+                       style="background-color: #121212"
+                       asp-action="Edit(@item.Id)">
+                        <i class="fas fa-edit"></i>">
+                    </a>
+                    <a class="btn btn-primary btn-lg btn-floating"
+                       style="background-color: #121212"
+                       asp-action="Delete(@item.Id)">
+                        <i class="fas fa-edit"></i>">
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
