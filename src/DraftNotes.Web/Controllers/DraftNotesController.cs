@@ -47,10 +47,7 @@ namespace DraftNotes.Web.Controllers
             {
 
                 throw;
-            }
-
-            return RedirectToAction("Create");
-
+            }           
         }
 
         [HttpGet]
@@ -83,9 +80,6 @@ namespace DraftNotes.Web.Controllers
 
                 throw;
             }
-
-            return RedirectToAction("Create");
-
         }
 
         public IActionResult Delete(int id)
